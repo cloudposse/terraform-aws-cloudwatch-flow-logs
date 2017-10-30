@@ -36,6 +36,16 @@ module "subnet_label" {
   tags       = "${var.tags}"
 }
 
+module "kinesis_label" {
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.2.2"
+  namespace  = "${var.namespace}"
+  name       = "kinesis"
+  stage      = "${var.stage}"
+  delimiter  = "${var.delimiter}"
+  attributes = "${var.attributes}"
+  tags       = "${var.tags}"
+}
+
 resource "aws_cloudwatch_log_group" "default" {
   name              = "${module.log_group_label.id}"
   retention_in_days = "${var.retention_in_days}"
@@ -53,6 +63,6 @@ resource "aws_flow_log" "subnets" {
   count          = "${length(data.aws_subnet_ids.default.ids)}"
   log_group_name = "${aws_cloudwatch_log_group.default.name}"
   iam_role_arn   = "${aws_iam_role.default.arn}"
-  subnet_id      = "${data.aws_subnet_ids.default.ids[count.index]}"
+  subnet_id      = "${element(data.aws_subnet_ids.default.ids, count.index)}"
   traffic_type   = "${var.traffic_type}"
 }

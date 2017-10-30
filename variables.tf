@@ -44,3 +44,32 @@ variable "traffic_type" {
 variable "vpc_id" {
   description = "ID of VPC"
 }
+
+variable "shard_count" {
+  description = "Number of shards that the stream will use"
+  default     = "1"
+}
+
+variable "retention_period" {
+  description = "Length of time data records are accessible after they are added to the stream"
+  default     = "48"
+}
+
+variable "shard_level_metrics" {
+  description = "List of shard-level CloudWatch metrics which can be enabled for the stream"
+
+  default = [
+    "IncomingBytes",
+    "OutgoingBytes",
+  ]
+}
+
+variable "encryption_type" {
+  description = "GUID for the customer-managed KMS key to use for encryption. The only acceptable values are NONE or KMS"
+  default     = "NONE"
+}
+
+variable "filter_pattern" {
+  description = " Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events"
+  default     = "[version, account, eni, source, destination, srcport, destport, protocol, packets, bytes, windowstart, windowend, action, flowlogstatus]"
+}
