@@ -32,7 +32,7 @@ module "flow_logs" {
 |:-----------------|:-------------------------|
 | log_group_arn    | ARN of the log group     |
 | subnets_flow_ids | Flow Log IDs for subnets |
-| vpc_flow_ids     | Flow Log IDs for vpcs    |
+| vpc_flow_ids     | Flow Log IDs for vpc     |
 
 ## License
 
