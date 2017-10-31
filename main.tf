@@ -9,30 +9,30 @@ data "aws_subnet_ids" "default" {
 module "log_group_label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.2.2"
   namespace  = "${var.namespace}"
-  name       = "logs"
+  name       = "${var.name}"
   stage      = "${var.stage}"
   delimiter  = "${var.delimiter}"
-  attributes = "${var.attributes}"
+  attributes = "${compact(concat(var.attributes, list("log")))}"
   tags       = "${var.tags}"
 }
 
 module "vpc_label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.2.2"
   namespace  = "${var.namespace}"
-  name       = "vpc"
+  name       = "${var.name}"
   stage      = "${var.stage}"
   delimiter  = "${var.delimiter}"
-  attributes = "${var.attributes}"
+  attributes = "${compact(concat(var.attributes, list("vpc")))}"
   tags       = "${var.tags}"
 }
 
 module "subnet_label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.2.2"
   namespace  = "${var.namespace}"
-  name       = "subnet"
+  name       = "${var.name}"
   stage      = "${var.stage}"
   delimiter  = "${var.delimiter}"
-  attributes = "${var.attributes}"
+  attributes = "${compact(concat(var.attributes, list("subnets")))}"
   tags       = "${var.tags}"
 }
 

@@ -17,6 +17,7 @@ module "flow_logs" {
 |:----------------------|:--------------------------------------:|:--------------------------------------------------------------------------------------------------------|:--------:|
 | `namespace`           |                   ``                   | Namespace (e.g. `cp` or `cloudposse`)                                                                   |   Yes    |
 | `stage`               |                   ``                   | Stage (e.g. `prod`, `dev`, `staging`)                                                                   |   Yes    |
+| `name`                |                   ``                   | Name  (e.g. `bastion` or `db`)                                                                          |    No    |
 | `delimiter`           |                  `-`                   | Delimiter to be used between `name`, `namespace`, `stage`, etc.                                         |    No    |
 | `attributes`          |                  `[]`                  | Additional attributes (e.g. `policy` or `role`)                                                         |    No    |
 | `tags`                |                  `{}`                  | Additional tags  (e.g. `map("BusinessUnit","XYZ")`                                                      |    No    |

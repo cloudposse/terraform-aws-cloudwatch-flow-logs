@@ -1,3 +1,8 @@
+variable "name" {
+  default     = ""
+  description = "Name  (e.g. `bastion` or `db`)"
+}
+
 variable "namespace" {
   description = "Namespace (e.g. `cp` or `cloudposse`)"
   type        = "string"
