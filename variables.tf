@@ -70,6 +70,6 @@ variable "encryption_type" {
 }
 
 variable "filter_pattern" {
-  description = " Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events"
+  description = "Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events"
   default     = "[version, account, eni, source, destination, srcport, destport, protocol, packets, bytes, windowstart, windowend, action, flowlogstatus]"
 }
