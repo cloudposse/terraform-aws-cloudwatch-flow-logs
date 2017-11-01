@@ -1,16 +1,17 @@
-#terraform-aws-cloudwatch-logs
+#terraform-aws-cloudwatch-flow-logs
 
-Terraform module for enabling flow logs for vpc, sudnets.
+Terraform module for enabling [`flow logs`](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html) for `vpc` and `subnets`.
 
 ## Usage
 
+```terraform
 module "flow_logs" {
-  source = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-logs.git?ref=master"
-  vpc_id = "vpc-d309abab"
+  source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-logs.git?ref=master"
+  vpc_id    = "vpc-d309abab"
   namespace = "cp"
   stage     = "dev"
 }
-
+```
 ## Inputs
 
 | Name                  |                Default                 | Description                                                                                             | Required |
