@@ -1,4 +1,4 @@
-# terraform-aws-cloudwatch-flow-logs
+# terraform-aws-cloudwatch-flow-logs [![Build Status](https://travis-ci.org/cloudposse/terraform-aws-cloudwatch-flow-logs.svg)](https://travis-ci.org/cloudposse/terraform-aws-cloudwatch-flow-logs)
 
 Terraform module for enabling [`flow logs`](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html) for `vpc` and `subnets`.
 
@@ -6,7 +6,7 @@ Terraform module for enabling [`flow logs`](http://docs.aws.amazon.com/AmazonVPC
 
 ```terraform
 module "flow_logs" {
-  source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-logs.git?ref=master"
+  source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs.git?ref=master"
   vpc_id    = "vpc-d309abab"
   namespace = "cp"
   stage     = "dev"
@@ -51,4 +51,3 @@ module "flow_logs" {
 ## License
 
 Apache 2 License. See [`LICENSE`](LICENSE) for full details.
-
