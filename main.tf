@@ -1,5 +1,5 @@
 data "aws_region" "default" {
-  current = true
+  current = "true"
 }
 
 data "aws_subnet_ids" "default" {

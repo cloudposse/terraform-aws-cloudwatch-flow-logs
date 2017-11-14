@@ -7,9 +7,9 @@ Terraform module for enabling [`flow logs`](http://docs.aws.amazon.com/AmazonVPC
 ```terraform
 module "flow_logs" {
   source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs.git?ref=master"
-  vpc_id    = "vpc-d309abab"
-  namespace = "cp"
-  stage     = "dev"
+  vpc_id    = "${var.vpc_id}"
+  namespace = "${var.namespace}"
+  stage     = "${var.stage}"
 }
 ```
 ## Inputs
@@ -37,16 +37,16 @@ module "flow_logs" {
 
 ## Outputs
 
-| Name                     | Description                          |
-|:-------------------------|:-------------------------------------|
-| log_group_arn            | ARN of the log group                 |
-| subnets_flow_ids         | Flow Log IDs for subnets             |
-| vpc_flow_id              | Flow Log IDs for vpc                 |
-| kinesis_arn              | ARN of Stream                        |
-| kinesis_id               | Stream ID                            |
-| kinesis_name             | Stream name                          |
-| kinesis_shard_count      | Count of Shards for Stream           |
-| subscription_filter_arns | ARNs of the log subscription filters |
+| Name                       | Description                          |
+|:---------------------------|:-------------------------------------|
+| `log_group_arn`            | ARN of the log group                 |
+| `subnets_flow_ids`         | Flow Log IDs for subnets             |
+| `vpc_flow_id`              | Flow Log IDs for vpc                 |
+| `kinesis_arn`              | ARN of Stream                        |
+| `kinesis_id`               | Stream ID                            |
+| `kinesis_name`             | Stream name                          |
+| `kinesis_shard_count`      | Count of Shards for Stream           |
+| `subscription_filter_arns` | ARNs of the log subscription filters |
 
 ## License
 
