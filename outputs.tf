@@ -5,12 +5,17 @@ output "log_group_arn" {
 
 output "vpc_flow_id" {
   value       = "${aws_flow_log.vpc.id}"
-  description = "Flow Log IDs for vpcs"
+  description = "Flow Log IDs of VPCs"
 }
 
-output "subnets_flow_ids" {
+output "subnet_flow_ids" {
   value       = "${aws_flow_log.subnets.*.id}"
-  description = "Flow Log IDs for subnets"
+  description = "Flow Log IDs of subnets"
+}
+
+output "eni_flow_ids" {
+  value       = "${aws_flow_log.eni.*.id}"
+  description = "Flow Log IDs of ENIs"
 }
 
 output "kinesis_id" {

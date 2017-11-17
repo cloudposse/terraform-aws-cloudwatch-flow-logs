@@ -50,6 +50,18 @@ variable "vpc_id" {
   description = "ID of VPC"
 }
 
+variable "subnet_ids" {
+  description = "IDs of subnets"
+  type        = "list"
+  default     = []
+}
+
+variable "eni_ids" {
+  description = "IDs of ENIs"
+  type        = "list"
+  default     = []
+}
+
 variable "shard_count" {
   description = "Number of shards that the stream will use"
   default     = "1"

@@ -2,10 +2,6 @@ data "aws_region" "default" {
   current = "true"
 }
 
-data "aws_subnet_ids" "default" {
-  vpc_id = "${var.vpc_id}"
-}
-
 module "log_group_label" {
   source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.2.2"
   namespace  = "${var.namespace}"
@@ -50,9 +46,17 @@ resource "aws_flow_log" "vpc" {
 }
 
 resource "aws_flow_log" "subnets" {
-  count          = "${length(data.aws_subnet_ids.default.ids)}"
+  count          = "${length(compact(var.subnet_ids))}"
   log_group_name = "${aws_cloudwatch_log_group.default.name}"
   iam_role_arn   = "${aws_iam_role.log.arn}"
-  subnet_id      = "${element(data.aws_subnet_ids.default.ids, count.index)}"
+  subnet_id      = "${element(var.subnet_ids, count.index)}"
+  traffic_type   = "${var.traffic_type}"
+}
+
+resource "aws_flow_log" "eni" {
+  count          = "${length(compact(var.eni_ids))}"
+  log_group_name = "${aws_cloudwatch_log_group.default.name}"
+  iam_role_arn   = "${aws_iam_role.log.arn}"
+  subnet_id      = "${element(var.eni_ids, count.index)}"
   traffic_type   = "${var.traffic_type}"
 }
