@@ -27,7 +27,7 @@ resource "aws_kinesis_stream" "default" {
   retention_period    = "${var.retention_period}"
   shard_level_metrics = "${var.shard_level_metrics}"
   encryption_type     = "${var.encryption_type}"
-  kms_key_id          = "${var.encryption_type}"
+  kms_key_id          = "${var.kms_key_id}"
   tags                = "${module.kinesis_label.tags}"
 }
 
