@@ -37,4 +37,5 @@ resource "aws_cloudwatch_log_subscription_filter" "default" {
   log_group_name  = "${aws_cloudwatch_log_group.default.name}"
   filter_pattern  = "${var.filter_pattern}"
   destination_arn = "${aws_kinesis_stream.default.arn}"
+  role_arn        = "${aws_iam_role.kinesis.arn}"
 }
