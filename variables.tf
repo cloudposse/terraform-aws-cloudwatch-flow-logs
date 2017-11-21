@@ -6,13 +6,11 @@ variable "name" {
 variable "namespace" {
   description = "Namespace (e.g. `cp` or `cloudposse`)"
   type        = "string"
-  default     = "cp"
 }
 
 variable "stage" {
   description = "Stage (e.g. `prod`, `dev`, `staging`)"
   type        = "string"
-  default     = "dev"
 }
 
 variable "delimiter" {
@@ -49,7 +47,6 @@ variable "traffic_type" {
 }
 
 variable "vpc_id" {
-  default     = "vpc-aceb27ca"
   description = "ID of VPC"
 }
 
@@ -101,5 +98,5 @@ variable "kms_key_id" {
 
 variable "enabled" {
   default     = "true"
-  description = "Set to false to prevent the module from creating anything	"
+  description = "Set to false to prevent the module from creating anything"
 }
