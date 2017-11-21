@@ -1,4 +1,6 @@
 data "aws_iam_policy_document" "log_assume" {
+  count = "${var.enabled == "true" ? 1 : 0}"
+
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -26,12 +28,14 @@ data "aws_iam_policy_document" "log" {
 }
 
 resource "aws_iam_role_policy" "log" {
+  count  = "${var.enabled == "true" ? 1 : 0}"
   name   = "${module.vpc_label.id}"
   role   = "${aws_iam_role.log.id}"
   policy = "${data.aws_iam_policy_document.log.json}"
 }
 
 resource "aws_iam_role" "log" {
+  count              = "${var.enabled == "true" ? 1 : 0}"
   name               = "${module.vpc_label.id}"
   assume_role_policy = "${data.aws_iam_policy_document.log_assume.json}"
 }
@@ -62,11 +66,13 @@ data "aws_iam_policy_document" "kinesis" {
 }
 
 resource "aws_iam_role" "kinesis" {
+  count              = "${var.enabled == "true" ? 1 : 0}"
   name               = "${module.kinesis_label.id}"
   assume_role_policy = "${data.aws_iam_policy_document.kinesis_assume.json}"
 }
 
 resource "aws_iam_role_policy" "kinesis" {
+  count  = "${var.enabled == "true" ? 1 : 0}"
   name   = "${module.vpc_label.id}"
   role   = "${aws_iam_role.kinesis.id}"
   policy = "${data.aws_iam_policy_document.kinesis.json}"

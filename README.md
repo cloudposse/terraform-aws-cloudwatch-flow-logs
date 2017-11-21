@@ -32,10 +32,9 @@ module "flow_logs" {
 | `retention_period`    |                  `48`                  | Length of time data records are accessible after they are added to the stream                           |    No    |
 | `shard_level_metrics` | `[ "IncomingBytes", "OutgoingBytes",]` | List of shard-level CloudWatch metrics which can be enabled for the stream                              |    No    |
 | `encryption_type`     |                 `NONE`                 | GUID for the customer-managed KMS key to use for encryption. The only acceptable values are NONE or KMS |    No    |
+| `kms_key_id`          |                   ``                   | ID of KMS key                                                                                           |    No    |
 | `filter_pattern`      |                 `"[]"`                 | Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events                 |    No    |
-
-
-
+| enabled               |                 `true`                 | Set to false to prevent the module from creating anything                                               |    No    |
 
 ## Outputs
 

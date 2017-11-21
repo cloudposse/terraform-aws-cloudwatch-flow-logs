@@ -90,3 +90,13 @@ variable "filter_pattern" {
   description = "Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events"
   default     = "[version, account, eni, source, destination, srcport, destport, protocol, packets, bytes, windowstart, windowend, action, flowlogstatus]"
 }
+
+variable "kms_key_id" {
+  description = "ID of KMS key"
+  default     = ""
+}
+
+variable "enabled" {
+  default     = "true"
+  description = "Set to false to prevent the module from creating anything	"
+}
