@@ -23,8 +23,8 @@ module "flow_logs" {
 | `attributes`          |                  `[]`                  | Additional attributes (e.g. `policy` or `role`)                                                         |    No    |
 | `tags`                |                  `{}`                  | Additional tags  (e.g. `map("BusinessUnit","XYZ")`                                                      |    No    |
 | `vpc_id`              |                   ``                   | ID of VPC                                                                                               |   Yes    |
-| `subnet_ids`          |                  `[]`                  | IDs of subnets                                                                                          |   Yes    |
-| `eni_ids`             |                  `[]`                  | IDs of ENIs                                                                                             |   Yes    |
+| `subnet_ids`          |                  `[]`                  | IDs of subnets                                                                                          |    No    |
+| `eni_ids`             |                  `[]`                  | IDs of ENIs                                                                                             |    No    |
 | `region`              |                   ``                   | AWS region e.g. `us-central-1`                                                                          |    No    |
 | `retention_in_days`   |                  `30`                  | Number of days you want to retain log events in the log group                                           |    No    |
 | `traffic_type`        |                 `ALL`                  | Type of traffic to capture. Valid values: ACCEPT,REJECT, ALL                                            |    No    |
@@ -34,21 +34,20 @@ module "flow_logs" {
 | `encryption_type`     |                 `NONE`                 | GUID for the customer-managed KMS key to use for encryption. The only acceptable values are NONE or KMS |    No    |
 | `kms_key_id`          |                   ``                   | ID of KMS key                                                                                           |    No    |
 | `filter_pattern`      |                 `"[]"`                 | Valid CloudWatch Logs filter pattern for subscribing to a filtered stream of log events                 |    No    |
-| enabled               |                 `true`                 | Set to false to prevent the module from creating anything                                               |    No    |
+| `enabled`             |                 `true`                 | Set to false to prevent the module from creating anything                                               |    No    |
 
 ## Outputs
 
-| Name                       | Description                          |
-|:---------------------------|:-------------------------------------|
-| `log_group_arn`            | ARN of the log group                 |
-| `eni_flow_ids`             | Flow Log IDs of ENIs                 |
-| `subnet_flow_ids`          | Flow Log IDs of subnets              |
-| `vpc_flow_id`              | Flow Log IDs of VPC                  |
-| `kinesis_arn`              | ARN of Stream                        |
-| `kinesis_id`               | Stream ID                            |
-| `kinesis_name`             | Stream name                          |
-| `kinesis_shard_count`      | Count of Shards for Stream           |
-| `subscription_filter_arns` | ARNs of the log subscription filters |
+| Name                  | Description                |
+|:----------------------|:---------------------------|
+| `log_group_arn`       | ARN of the log group       |
+| `eni_flow_ids`        | Flow Log IDs of ENIs       |
+| `subnet_flow_ids`     | Flow Log IDs of subnets    |
+| `vpc_flow_id`         | Flow Log IDs of VPC        |
+| `kinesis_arn`         | ARN of Stream              |
+| `kinesis_id`          | Stream ID                  |
+| `kinesis_name`        | Stream name                |
+| `kinesis_shard_count` | Count of Shards for Stream |
 
 ## License
 

@@ -37,8 +37,3 @@ output "kinesis_arn" {
   value       = "${aws_kinesis_stream.default.arn}"
   description = "ARN of Stream"
 }
-
-output "subscription_filter_arns" {
-  value       = "${aws_cloudwatch_log_subscription_filter.default.arn}"
-  description = "ARNs of the log subscription filters"
-}
