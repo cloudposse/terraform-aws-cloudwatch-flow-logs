@@ -1,0 +1,70 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-cloudwatch-flow-logs
+
+# Logo for this project
+#logo: docs/logo.png
+
+# License of this project
+license: "APACHE2"
+
+# Canonical GitHub repo
+github_repo: cloudposse/terraform-aws-cloudwatch-flow-logs
+
+# Badges to display
+badges:
+  - name: "Build Status"
+    image: "https://travis-ci.org/cloudposse/terraform-aws-cloudwatch-flow-logs.svg?branch=master"
+    url: "https://travis-ci.org/cloudposse/terraform-aws-cloudwatch-flow-logs"
+  - name: "Latest Release"
+    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-cloudwatch-flow-logs.svg"
+    url: "https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs/releases/latest"
+  - name: "Slack Community"
+    image: "https://slack.cloudposse.com/badge.svg"
+    url: "https://slack.cloudposse.com"
+
+related:
+  - name: "terraform-aws-cloudwatch-logs"
+    description: "Terraform Module to Provide a CloudWatch Logs Endpoint"
+    url: "https://github.com/cloudposse/terraform-aws-cloudwatch-logs"
+  - name: "terraform-aws-ecs-web-app"
+    description: "Terraform module that implements a web app on ECS and supporting AWS resources."
+    url: "https://github.com/cloudposse/terraform-aws-ecs-web-app"
+  - name: "terraform-aws-ec2-bastion-server"
+    description: "Terraform Module to define a generic Bastion host with parameterized user_data"
+    url: "https://github.com/cloudposse/terraform-aws-ec2-bastion-server"
+  - name: "terraform-aws-ec2-instance"
+    description: "Terraform Module for providing a general EC2 instance provisioned by Ansible"
+    url: "https://github.com/cloudposse/terraform-aws-ec2-instance"
+  - name: "terraform-aws-ec2-ami-backup"
+    description: "Terraform module for automatic & scheduled AMI creation"
+    url: "https://github.com/cloudposse/terraform-aws-ec2-ami-backup"
+
+# Short description of this project
+description: |-
+  Terraform module for enabling [`flow logs`](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/flow-logs.html) for `vpc` and `subnets`.
+
+# How to use this project
+usage: |-
+  ```terraform
+  module "flow_logs" {
+    source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs.git?ref=master"
+    vpc_id    = "${var.vpc_id}"
+    namespace = "${var.namespace}"
+    stage     = "${var.stage}"
+  }
+  ```
+
+include:
+  - "docs/targets.md"
+  - "docs/terraform.md"
+
+# Contributors to this project
+contributors:
+  - name: "Vladimir"
+    github: "SweetOps"
