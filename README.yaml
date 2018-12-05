@@ -11,11 +11,16 @@ name: terraform-aws-cloudwatch-flow-logs
 tags:
   - aws
   - terraform
+  - terraform-modules
   - logging
+  - cloudwatch-logs
+  - vpc-flow-logs
+  - ec2
+  - secops
 
 # Categories of this project
 categories:
-  - terraform-logging
+  - terraform-modules/logging
 
 # Logo for this project
 #logo: docs/logo.png
