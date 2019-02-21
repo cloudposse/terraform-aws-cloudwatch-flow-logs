@@ -1,10 +1,10 @@
 output "log_group_arn" {
-  value       = "${aws_cloudwatch_log_group.default.arn}"
+  value       = "${aws_cloudwatch_log_group.default.*.arn}"
   description = "ARN of the log group"
 }
 
 output "vpc_flow_id" {
-  value       = "${aws_flow_log.vpc.id}"
+  value       = "${aws_flow_log.vpc.*.id}"
   description = "Flow Log IDs of VPCs"
 }
 
@@ -19,21 +19,21 @@ output "eni_flow_ids" {
 }
 
 output "kinesis_id" {
-  value       = "${aws_kinesis_stream.default.id}"
+  value       = "${aws_kinesis_stream.default.*.id}"
   description = "Stream ID"
 }
 
 output "kinesis_name" {
-  value       = "${aws_kinesis_stream.default.name}"
+  value       = "${aws_kinesis_stream.default.*.name}"
   description = "Stream name"
 }
 
 output "kinesis_shard_count" {
-  value       = "${aws_kinesis_stream.default.shard_count}"
+  value       = "${aws_kinesis_stream.default.*.shard_count}"
   description = "Count of Shards for Stream"
 }
 
 output "kinesis_arn" {
-  value       = "${aws_kinesis_stream.default.arn}"
+  value       = "${aws_kinesis_stream.default.*.arn}"
   description = "ARN of Stream"
 }
