@@ -45,9 +45,9 @@ We literally have [*hundreds of terraform modules*][terraform_modules] that are 
 ```terraform
 module "flow_logs" {
   source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs.git?ref=master"
-  vpc_id    = "${var.vpc_id}"
-  namespace = "${var.namespace}"
-  stage     = "${var.stage}"
+  vpc_id    = var.vpc_id
+  namespace = var.namespace
+  stage     = var.stage
 }
 ```
 

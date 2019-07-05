@@ -28,16 +28,16 @@ data "aws_iam_policy_document" "log" {
 }
 
 resource "aws_iam_role_policy" "log" {
-  count  = "${var.enabled == "true" ? 1 : 0}"
-  name   = "${module.vpc_label.id}"
-  role   = "${aws_iam_role.log.id}"
-  policy = "${data.aws_iam_policy_document.log.json}"
+  count  = var.enabled == "true" ? 1 : 0
+  name   = module.vpc_label.id
+  role   = aws_iam_role.log[0].id
+  policy = data.aws_iam_policy_document.log.json
 }
 
 resource "aws_iam_role" "log" {
-  count              = "${var.enabled == "true" ? 1 : 0}"
-  name               = "${module.vpc_label.id}"
-  assume_role_policy = "${data.aws_iam_policy_document.log_assume.json}"
+  count              = var.enabled == "true" ? 1 : 0
+  name               = module.vpc_label.id
+  assume_role_policy = data.aws_iam_policy_document.log_assume[0].json
 }
 
 data "aws_iam_policy_document" "kinesis_assume" {
@@ -46,7 +46,7 @@ data "aws_iam_policy_document" "kinesis_assume" {
 
     principals {
       type        = "Service"
-      identifiers = ["logs.${length(var.region) > 0 ? var.region: data.aws_region.default.name}.amazonaws.com"]
+      identifiers = ["logs.${length(var.region) > 0 ? var.region : data.aws_region.default.name}.amazonaws.com"]
     }
   }
 }
@@ -60,20 +60,21 @@ data "aws_iam_policy_document" "kinesis" {
     ]
 
     resources = [
-      "${aws_kinesis_stream.default.arn}",
+      aws_kinesis_stream.default[0].arn,
     ]
   }
 }
 
 resource "aws_iam_role" "kinesis" {
-  count              = "${var.enabled == "true" ? 1 : 0}"
-  name               = "${module.kinesis_label.id}"
-  assume_role_policy = "${data.aws_iam_policy_document.kinesis_assume.json}"
+  count              = var.enabled == "true" ? 1 : 0
+  name               = module.kinesis_label.id
+  assume_role_policy = data.aws_iam_policy_document.kinesis_assume.json
 }
 
 resource "aws_iam_role_policy" "kinesis" {
-  count  = "${var.enabled == "true" ? 1 : 0}"
-  name   = "${module.vpc_label.id}"
-  role   = "${aws_iam_role.kinesis.id}"
-  policy = "${data.aws_iam_policy_document.kinesis.json}"
+  count  = var.enabled == "true" ? 1 : 0
+  name   = module.vpc_label.id
+  role   = aws_iam_role.kinesis[0].id
+  policy = data.aws_iam_policy_document.kinesis.json
 }
+
