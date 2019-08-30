@@ -62,6 +62,6 @@ resource "aws_flow_log" "eni" {
   count          = "${var.enabled == "true" ? length(compact(var.eni_ids)) : 0}"
   log_group_name = "${aws_cloudwatch_log_group.default.name}"
   iam_role_arn   = "${aws_iam_role.log.arn}"
-  subnet_id      = "${element(compact(var.eni_ids), count.index)}"
+  eni_id         = "${element(compact(var.eni_ids), count.index)}"
   traffic_type   = "${var.traffic_type}"
 }
