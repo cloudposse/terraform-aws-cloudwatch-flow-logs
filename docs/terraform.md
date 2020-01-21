@@ -1,4 +1,3 @@
-
 ## Inputs
 
 | Name | Description | Type | Default | Required |
@@ -16,7 +15,7 @@
 | retention_in_days | Number of days you want to retain log events in the log group | string | `30` | no |
 | retention_period | Length of time data records are accessible after they are added to the stream | string | `48` | no |
 | shard_count | Number of shards that the stream will use | string | `1` | no |
-| shard_level_metrics | List of shard-level CloudWatch metrics which can be enabled for the stream | string | `<list>` | no |
+| shard_level_metrics | List of shard-level CloudWatch metrics which can be enabled for the stream | list | `<list>` | no |
 | stage | Stage (e.g. `prod`, `dev`, `staging`) | string | - | yes |
 | subnet_ids | IDs of subnets | list | `<list>` | no |
 | tags | Additional tags (e.g. map(`BusinessUnit`,`XYZ`) | map | `<map>` | no |
