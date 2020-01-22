@@ -89,9 +89,9 @@ Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest re
 ```terraform
 module "flow_logs" {
   source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs.git?ref=master"
-  vpc_id    = "${var.vpc_id}"
-  namespace = "${var.namespace}"
-  stage     = "${var.stage}"
+  vpc_id    = var.vpc_id
+  namespace = var.namespace
+  stage     = var.stage
 }
 ```
 
