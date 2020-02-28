@@ -139,13 +139,13 @@ Available targets:
 | Name | Description |
 |------|-------------|
 | eni_flow_ids | Flow Log IDs of ENIs |
-| kinesis_arn | ARN of Stream |
-| kinesis_id | Stream ID |
-| kinesis_name | Stream name |
-| kinesis_shard_count | Count of Shards for Stream |
+| kinesis_arn | Kinesis Stream ARN |
+| kinesis_id | Kinesis Stream ID |
+| kinesis_name | Kinesis Stream name |
+| kinesis_shard_count | Kinesis Stream Shard count |
 | log_group_arn | ARN of the log group |
 | subnet_flow_ids | Flow Log IDs of subnets |
-| vpc_flow_id | Flow Log IDs of VPCs |
+| vpc_flow_id | VPC Flow Log ID |
 
 
 
