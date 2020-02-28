@@ -6,7 +6,6 @@ output "log_group_arn" {
 output "vpc_flow_id" {
   value       = "${join("", aws_flow_log.vpc.*.id)}"
   description = "VPC Flow Log ID"
-
 }
 
 output "subnet_flow_ids" {

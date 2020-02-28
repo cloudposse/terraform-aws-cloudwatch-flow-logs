@@ -41,25 +41,25 @@ resource "aws_cloudwatch_log_group" "default" {
 }
 
 resource "aws_flow_log" "vpc" {
-  count          = "${var.enabled == "true" ? 1 : 0}"
+  count           = "${var.enabled == "true" ? 1 : 0}"
   log_destination = "${aws_cloudwatch_log_group.default.arn}"
-  iam_role_arn   = "${aws_iam_role.log.arn}"
-  vpc_id         = "${var.vpc_id}"
-  traffic_type   = "${var.traffic_type}"
+  iam_role_arn    = "${aws_iam_role.log.arn}"
+  vpc_id          = "${var.vpc_id}"
+  traffic_type    = "${var.traffic_type}"
 }
 
 resource "aws_flow_log" "subnets" {
-  count          = "${var.enabled == "true" ? length(compact(var.subnet_ids)) : 0}"
+  count           = "${var.enabled == "true" ? length(compact(var.subnet_ids)) : 0}"
   log_destination = "${aws_cloudwatch_log_group.default.arn}"
-  iam_role_arn   = "${aws_iam_role.log.arn}"
-  subnet_id      = "${element(compact(var.subnet_ids), count.index)}"
-  traffic_type   = "${var.traffic_type}"
+  iam_role_arn    = "${aws_iam_role.log.arn}"
+  subnet_id       = "${element(compact(var.subnet_ids), count.index)}"
+  traffic_type    = "${var.traffic_type}"
 }
 
 resource "aws_flow_log" "eni" {
-  count          = "${var.enabled == "true" ? length(compact(var.eni_ids)) : 0}"
+  count           = "${var.enabled == "true" ? length(compact(var.eni_ids)) : 0}"
   log_destination = "${aws_cloudwatch_log_group.default.arn}"
-  iam_role_arn   = "${aws_iam_role.log.arn}"
-  subnet_id      = "${element(compact(var.eni_ids), count.index)}"
-  traffic_type   = "${var.traffic_type}"
+  iam_role_arn    = "${aws_iam_role.log.arn}"
+  subnet_id       = "${element(compact(var.eni_ids), count.index)}"
+  traffic_type    = "${var.traffic_type}"
 }
