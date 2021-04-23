@@ -4,7 +4,7 @@ module "log_group_label" {
   source  = "cloudposse/label/null"
   version = "0.24.1"
 
-  context = module.this.context
+  context    = module.this.context
   attributes = compact(concat(module.this.attributes, ["log"]))
 }
 
@@ -12,7 +12,7 @@ module "vpc_label" {
   source  = "cloudposse/label/null"
   version = "0.24.1"
 
-  context = module.this.context
+  context    = module.this.context
   attributes = compact(concat(module.this.attributes, ["vpc"]))
 }
 
@@ -20,7 +20,7 @@ module "subnet_label" {
   source  = "cloudposse/label/null"
   version = "0.24.1"
 
-  context = module.this.context
+  context    = module.this.context
   attributes = compact(concat(module.this.attributes, ["subnets"]))
 }
 
