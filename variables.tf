@@ -1,79 +1,53 @@
-variable "name" {
-  default     = ""
-  description = "Name  (e.g. `bastion` or `db`)"
-}
-
-variable "namespace" {
-  description = "Namespace (e.g. `cp` or `cloudposse`)"
-  type        = "string"
-}
-
-variable "stage" {
-  description = "Stage (e.g. `prod`, `dev`, `staging`)"
-  type        = "string"
-}
-
-variable "delimiter" {
-  type        = "string"
-  default     = "-"
-  description = "Delimiter to be used between `name`, `namespace`, `stage`, etc."
-}
-
-variable "attributes" {
-  type        = "list"
-  default     = []
-  description = "Additional attributes (e.g. `policy` or `role`)"
-}
-
-variable "tags" {
-  type        = "map"
-  default     = {}
-  description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)"
-}
-
 variable "region" {
   description = "AWS region"
+  type        = string
   default     = ""
 }
 
 variable "retention_in_days" {
   description = "Number of days you want to retain log events in the log group"
-  default     = "30"
+  type        = number
+  default     = 30
 }
 
 variable "traffic_type" {
   description = "Type of traffic to capture. Valid values: ACCEPT,REJECT, ALL"
+  type        = string
   default     = "ALL"
 }
 
 variable "vpc_id" {
   description = "ID of VPC"
+  type        = string
 }
 
 variable "subnet_ids" {
   description = "IDs of subnets"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
 variable "eni_ids" {
   description = "IDs of ENIs"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
 variable "shard_count" {
   description = "Number of shards that the stream will use"
-  default     = "1"
+  type        = number
+  default     = 1
 }
 
 variable "retention_period" {
   description = "Length of time data records are accessible after they are added to the stream"
-  default     = "48"
+  type        = number
+  default     = 48
 }
 
 variable "shard_level_metrics" {
   description = "List of shard-level CloudWatch metrics which can be enabled for the stream"
+  type        = list(string)
 
   default = [
     "IncomingBytes",
@@ -83,6 +57,7 @@ variable "shard_level_metrics" {
 
 variable "encryption_type" {
   description = "GUID for the customer-managed KMS key to use for encryption. The only acceptable values are NONE or KMS"
+  type        = string
   default     = "NONE"
 }
 
@@ -93,10 +68,6 @@ variable "filter_pattern" {
 
 variable "kms_key_id" {
   description = "ID of KMS key"
+  type        = string
   default     = ""
-}
-
-variable "enabled" {
-  default     = "true"
-  description = "Set to false to prevent the module from creating anything"
 }
