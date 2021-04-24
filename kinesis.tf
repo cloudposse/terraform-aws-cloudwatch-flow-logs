@@ -28,8 +28,8 @@ resource "aws_kinesis_stream" "default" {
 resource "aws_cloudwatch_log_subscription_filter" "default" {
   count           = module.this.enabled ? 1 : 0
   name            = module.subscription_filter_label.id
-  log_group_name  = aws_cloudwatch_log_group.default.name
+  log_group_name  = join("", aws_cloudwatch_log_group.default.*.name)
   filter_pattern  = var.filter_pattern
-  destination_arn = aws_kinesis_stream.default.arn
-  role_arn        = aws_iam_role.kinesis.arn
+  destination_arn = join("", aws_kinesis_stream.default.*.arn)
+  role_arn        = join("", aws_iam_role.kinesis.*.arn)
 }

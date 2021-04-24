@@ -41,7 +41,7 @@ resource "aws_iam_role_policy" "log" {
 resource "aws_iam_role" "log" {
   count              = module.this.enabled ? 1 : 0
   name               = module.vpc_label.id
-  assume_role_policy = data.aws_iam_policy_document.log_assume.json
+  assume_role_policy = join("", data.aws_iam_policy_document.log_assume.*.json)
 }
 
 data "aws_iam_policy_document" "kinesis_assume" {
@@ -64,7 +64,7 @@ data "aws_iam_policy_document" "kinesis" {
     ]
 
     resources = [
-      aws_kinesis_stream.default.arn,
+      join("", aws_kinesis_stream.default.*.arn),
     ]
   }
 }
