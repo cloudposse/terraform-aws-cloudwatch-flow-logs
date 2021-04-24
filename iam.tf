@@ -34,7 +34,7 @@ locals {
 resource "aws_iam_role_policy" "log" {
   count  = module.this.enabled ? 1 : 0
   name   = module.vpc_label.id
-  role   = aws_iam_role.log.id
+  role   = join("", aws_iam_role.log.*.id)
   policy = data.aws_iam_policy_document.log.json
 }
 
@@ -78,6 +78,6 @@ resource "aws_iam_role" "kinesis" {
 resource "aws_iam_role_policy" "kinesis" {
   count  = module.this.enabled ? 1 : 0
   name   = module.vpc_label.id
-  role   = aws_iam_role.kinesis.id
+  role   = join("", aws_iam_role.kinesis.*.id)
   policy = data.aws_iam_policy_document.kinesis.json
 }
