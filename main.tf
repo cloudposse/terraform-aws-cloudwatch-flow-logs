@@ -13,7 +13,7 @@ module "vpc_label" {
   version = "0.24.1"
 
   context    = module.this.context
-  attributes = compact(concat(module.this.attributes, ["vpc"]))
+  attributes = ["vpc"]
 }
 
 module "subnet_label" {
