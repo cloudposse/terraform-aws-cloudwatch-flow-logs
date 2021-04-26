@@ -21,7 +21,7 @@ module "subnet_label" {
   version = "0.24.1"
 
   context    = module.this.context
-  attributes = compact(concat(module.this.attributes, ["subnets"]))
+  attributes = ["subnets"]
 }
 
 resource "aws_cloudwatch_log_group" "default" {
