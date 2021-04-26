@@ -5,7 +5,7 @@ module "log_group_label" {
   version = "0.24.1"
 
   context    = module.this.context
-  attributes = compact(concat(module.this.attributes, ["log"]))
+  attributes = ["log"]
 }
 
 module "vpc_label" {
