@@ -95,7 +95,9 @@ description: |-
 usage: |-
   ```terraform
   module "flow_logs" {
-    source    = "git::https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs.git?ref=master"
+    source = "cloudposse/cloudwatch-flow-logs/aws"
+    # Cloud Posse recommends pinning every module to a specific version
+    # version = "x.x.x"
     vpc_id    = "${var.vpc_id}"
     namespace = "${var.namespace}"
     stage     = "${var.stage}"
