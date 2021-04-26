@@ -28,6 +28,7 @@ resource "aws_cloudwatch_log_group" "default" {
   count             = module.this.enabled ? 1 : 0
   name              = module.log_group_label.id
   retention_in_days = var.retention_in_days
+  kms_key_id        = var.log_group_kms_key_arn
   tags              = module.log_group_label.tags
 }
 

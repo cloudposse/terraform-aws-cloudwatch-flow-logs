@@ -67,7 +67,12 @@ variable "filter_pattern" {
 }
 
 variable "kms_key_id" {
-  description = "ID of KMS key"
+  description = "ID of KMS key to encrypt Kinesis"
   type        = string
+  default     = ""
+}
+
+variable "log_group_kms_key_arn" {
+  description = "The ARN of the KMS Key to use when encrypting log data. Please note, after the AWS KMS CMK is disassociated from the log group, AWS CloudWatch Logs stops encrypting newly ingested data for the log group. All previously ingested data remains encrypted, and AWS CloudWatch Logs requires permissions for the CMK whenever the encrypted data is requested."
   default     = ""
 }
