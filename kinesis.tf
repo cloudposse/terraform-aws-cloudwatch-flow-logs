@@ -11,7 +11,7 @@ module "subscription_filter_label" {
   version = "0.24.1"
 
   context    = module.this.context
-  attributes = compact(concat(module.this.attributes, ["filter"]))
+  attributes = ["filter"]
 }
 
 resource "aws_kinesis_stream" "default" {
