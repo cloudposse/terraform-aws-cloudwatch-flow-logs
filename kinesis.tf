@@ -3,7 +3,7 @@ module "kinesis_label" {
   version = "0.24.1"
 
   context    = module.this.context
-  attributes = compact(concat(module.this.attributes, ["kinesis"]))
+  attributes = ["kinesis"]
 }
 
 module "subscription_filter_label" {
