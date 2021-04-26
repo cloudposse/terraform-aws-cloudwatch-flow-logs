@@ -58,7 +58,7 @@ variable "shard_level_metrics" {
 variable "encryption_type" {
   description = "GUID for the customer-managed KMS key to use for encryption. The only acceptable values are NONE or KMS"
   type        = string
-  default     = "NONE"
+  default     = "KMS"
 }
 
 variable "filter_pattern" {
@@ -69,7 +69,7 @@ variable "filter_pattern" {
 variable "kms_key_id" {
   description = "ID of KMS key to encrypt Kinesis"
   type        = string
-  default     = ""
+  default     = "alias/aws/kinesis"
 }
 
 variable "log_group_kms_key_arn" {
