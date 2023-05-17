@@ -5,28 +5,28 @@ variable "name" {
 
 variable "namespace" {
   description = "Namespace (e.g. `cp` or `cloudposse`)"
-  type        = "string"
+  type        = string
 }
 
 variable "stage" {
   description = "Stage (e.g. `prod`, `dev`, `staging`)"
-  type        = "string"
+  type        = string
 }
 
 variable "delimiter" {
-  type        = "string"
+  type        = string
   default     = "-"
   description = "Delimiter to be used between `name`, `namespace`, `stage`, etc."
 }
 
 variable "attributes" {
-  type        = "list"
+  type        = list(string)
   default     = []
   description = "Additional attributes (e.g. `policy` or `role`)"
 }
 
 variable "tags" {
-  type        = "map"
+  type        = map(string)
   default     = {}
   description = "Additional tags (e.g. map(`BusinessUnit`,`XYZ`)"
 }
@@ -52,13 +52,13 @@ variable "vpc_id" {
 
 variable "subnet_ids" {
   description = "IDs of subnets"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
 variable "eni_ids" {
   description = "IDs of ENIs"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
 
