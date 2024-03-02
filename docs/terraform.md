@@ -13,11 +13,11 @@ No requirements.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kinesis_label"></a> [kinesis\_label](#module\_kinesis\_label) | git::https://github.com/cloudposse/terraform-null-label.git | tags/0.3.1 |
-| <a name="module_log_group_label"></a> [log\_group\_label](#module\_log\_group\_label) | git::https://github.com/cloudposse/terraform-null-label.git | tags/0.3.1 |
-| <a name="module_subnet_label"></a> [subnet\_label](#module\_subnet\_label) | git::https://github.com/cloudposse/terraform-null-label.git | tags/0.3.1 |
-| <a name="module_subscription_filter_label"></a> [subscription\_filter\_label](#module\_subscription\_filter\_label) | git::https://github.com/cloudposse/terraform-null-label.git | tags/0.3.1 |
-| <a name="module_vpc_label"></a> [vpc\_label](#module\_vpc\_label) | git::https://github.com/cloudposse/terraform-null-label.git | tags/0.3.1 |
+| <a name="module_kinesis_label"></a> [kinesis\_label](#module\_kinesis\_label) | git::https://github.com/cloudposse/terraform-null-label.git | 0.25.0 |
+| <a name="module_log_group_label"></a> [log\_group\_label](#module\_log\_group\_label) | git::https://github.com/cloudposse/terraform-null-label.git | 0.25.0 |
+| <a name="module_subnet_label"></a> [subnet\_label](#module\_subnet\_label) | git::https://github.com/cloudposse/terraform-null-label.git | 0.25.0 |
+| <a name="module_subscription_filter_label"></a> [subscription\_filter\_label](#module\_subscription\_filter\_label) | git::https://github.com/cloudposse/terraform-null-label.git | 0.25.0 |
+| <a name="module_vpc_label"></a> [vpc\_label](#module\_vpc\_label) | git::https://github.com/cloudposse/terraform-null-label.git | 0.25.0 |
 
 ## Resources
 
