@@ -1,7 +1,7 @@
 data "aws_region" "default" {}
 
 module "log_group_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.3.1"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=0.25.0"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage
@@ -12,7 +12,7 @@ module "log_group_label" {
 }
 
 module "vpc_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.3.1"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=0.25.0"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage
@@ -23,7 +23,7 @@ module "vpc_label" {
 }
 
 module "subnet_label" {
-  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=tags/0.3.1"
+  source     = "git::https://github.com/cloudposse/terraform-null-label.git?ref=0.25.0"
   namespace  = var.namespace
   name       = var.name
   stage      = var.stage
