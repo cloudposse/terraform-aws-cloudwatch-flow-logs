@@ -1,4 +1,3 @@
----
 #
 # This is the canonical configuration for the `README.md`
 # Run `make readme` to rebuild the `README.md`
@@ -33,16 +32,17 @@ github_repo: cloudposse/terraform-aws-cloudwatch-flow-logs
 
 # Badges to display
 badges:
-  - name: "Build Status"
-    image: "https://travis-ci.org/cloudposse/terraform-aws-cloudwatch-flow-logs.svg?branch=master"
-    url: "https://travis-ci.org/cloudposse/terraform-aws-cloudwatch-flow-logs"
-  - name: "Latest Release"
-    image: "https://img.shields.io/github/release/cloudposse/terraform-aws-cloudwatch-flow-logs.svg"
-    url: "https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs/releases/latest"
-  - name: "Slack Community"
-    image: "https://slack.cloudposse.com/badge.svg"
-    url: "https://slack.cloudposse.com"
+  - name: Latest Release
+    image: https://img.shields.io/github/release/cloudposse/terraform-aws-cloudwatch-flow-logs.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs/releases/latest
+  - name: Last Updated
+    image: https://img.shields.io/github/last-commit/cloudposse/terraform-aws-cloudwatch-flow-logs.svg?style=for-the-badge
+    url: https://github.com/cloudposse/terraform-aws-cloudwatch-flow-logs/commits
+  - name: Slack Community
+    image: https://slack.cloudposse.com/for-the-badge.svg
+    url: https://slack.cloudposse.com
 
+# List any related terraform modules that this module may be used with or that this module depends on.
 related:
   - name: "terraform-aws-ecs-web-app"
     description: "Terraform module that implements a web app on ECS and supporting AWS resources."
@@ -107,6 +107,4 @@ include:
   - "docs/terraform.md"
 
 # Contributors to this project
-contributors:
-  - name: "Vladimir"
-    github: "SweetOps"
+contributors: []
