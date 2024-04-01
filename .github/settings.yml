@@ -1,0 +1,7 @@
+# Upstream changes from _extends are only recognized when modifications are made to this file in the default branch.
+_extends: .github
+repository:
+  name: terraform-aws-cloudwatch-flow-logs
+  description: Terraform module for enabling flow logs for vpc and subnets.
+  homepage: https://cloudposse.com/accelerate
+  topics: terraform, terraform-module, aws, cloudwatch-logs, vpc-flow-logs, ec2, secops
